@@ -1,10 +1,14 @@
 <?php
 interface MyInterface
 {
+    function test();
 }
 
 class MyClass implements MyInterface
 {
+    function test(){
+        return true;
+    }
 }
 
 $a = new MyClass;

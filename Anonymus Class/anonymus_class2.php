@@ -20,10 +20,11 @@ class MyClassThatRequiresALogger
     }
 }
 
-$logger = new class()  implements Logger {
-    public function log(string $input) { print($input); }
+$logger = new class() implements Logger {
+    public function log(string $input) {
+        print($input); 
+    }
 };
 
 $myClass = new MyClassThatRequiresALogger($logger);
 $myClass->run(); // I did something!
-?>

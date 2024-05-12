@@ -1,13 +1,10 @@
 <?php
 
     /**
-     * php function arguments link
-     * https://www.php.net/manual/en/functions.arguments.php
+     * Anonymous classes in PHP allow you to create a class without having to define it first. 
+     * This can be useful for creating one-off classes or 
+     * for creating classes that are only needed for a short period of time.
      */
-
-   interface Logger {
-      public function log(string $msg);
-   }
 
    class Application {
       private $logger;
@@ -15,13 +12,14 @@
       {
 
       }
+
       public function getLogger(): self {
          return $this->logger;
       }
 
       public function setLogger(self $logger) {
          $this->logger = $logger;
-      }  
+      }
    }
 
    $app = new Application;
@@ -31,5 +29,4 @@
       }
    });
 
-   $app->getLogger()->log("My first Log Message");
-?>
+   $app->getLogger()->log("This is my first log message");
