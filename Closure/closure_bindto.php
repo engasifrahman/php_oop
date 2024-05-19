@@ -7,7 +7,9 @@ class A {
     }
     function getClosure() {
         //returns closure bound to this object and scope
-        return function() { return $this->val; };
+        return function() { 
+            return $this->val; 
+        };
     }
 }
 
@@ -21,7 +23,10 @@ echo $cl(), "\n";
 
 
 /* -------------------------------------------------------------------------- */
-$cl = function() { return $this->val; };
+
+$cl = function() { 
+    return $this->val;
+};
 $cl = $cl->bindTo($ob2, 'A');
 echo $cl(), "\n";
 ?>

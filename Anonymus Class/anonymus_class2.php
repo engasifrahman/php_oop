@@ -28,3 +28,5 @@ $logger = new class() implements Logger {
 
 $myClass = new MyClassThatRequiresALogger($logger);
 $myClass->run(); // I did something!
+
+echo PHP_EOL . $logger instanceof Logger; // true
