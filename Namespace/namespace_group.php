@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * 
+ */
 // Pre PHP 7 code
 use some\namespace\ClassA;
 use some\namespace\ClassB;

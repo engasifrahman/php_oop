@@ -1,4 +1,5 @@
 <?php
+
 class DivideByZeroException extends Exception {};
 class DivideByNegativeException extends Exception {};
 
@@ -33,4 +34,3 @@ function process_divide($denominator)
     }
 }
 process_divide(0);
-?>

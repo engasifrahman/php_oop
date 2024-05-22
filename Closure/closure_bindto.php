@@ -29,4 +29,3 @@ $cl = function() {
 };
 $cl = $cl->bindTo($ob2, 'A');
 echo $cl(), "\n";
-?>

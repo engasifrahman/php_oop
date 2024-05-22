@@ -1,14 +1,18 @@
 <?php
 
 /**
-* Interface synopsis ¶
-* ArrayAccess {
-* Methods 
-* abstract public offsetExists ( mixed $offset ) : bool
-* abstract public offsetGet ( mixed $offset ) : mixed
-* abstract public offsetSet ( mixed $offset , mixed $value ) : void
-* abstract public offsetUnset ( mixed $offset ) : void
-* }
+ * ?ArrayAccess
+ * 
+ * Interface to provide accessing objects as arrays.
+ * 
+ * Interface synopsis
+   interface ArrayAccess {
+        // Methods
+        public offsetUnset(mixed $offset): void
+        public offsetExists(mixed $offset): bool
+        public offsetGet(mixed $offset): mixed
+        public offsetSet(mixed $offset, mixed $value): void
+   }
  */
 class Obj implements ArrayAccess {
     private $container = array();
@@ -54,4 +58,3 @@ $obj[] = 'Append 1';
 $obj[] = 'Append 2';
 $obj[] = 'Append 3';
 print_r($obj);
-?>

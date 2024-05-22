@@ -1,86 +1,86 @@
 <?php
-    //Example #1 Trait example
-    trait ezcReflectionReturnInfo {
-        function getReturnType() { /*1*/ }
-        function getReturnDescription() { /*2*/ }
-    }
 
-    class ezcReflectionMethod extends ReflectionMethod {
-        use ezcReflectionReturnInfo;
-        /* ... */
-    }
+//Example #1 Trait example
+trait ezcReflectionReturnInfo {
+    function getReturnType() { /*1*/ }
+    function getReturnDescription() { /*2*/ }
+}
 
-    class ezcReflectionFunction extends ReflectionFunction {
-        use ezcReflectionReturnInfo;
-        /* ... */
-    }
+class ezcReflectionMethod extends ReflectionMethod {
+    use ezcReflectionReturnInfo;
+    /* ... */
+}
 
-    //Example #2 Precedence Order Example
-    class Base {
-        public function sayHello() {
-            echo 'Hello ';
-        }
-    }
+class ezcReflectionFunction extends ReflectionFunction {
+    use ezcReflectionReturnInfo;
+    /* ... */
+}
 
-    trait SayWorld {
-        public function sayHello() {
-            parent::sayHello();
-            echo 'World!';
-        }
+//Example #2 Precedence Order Example
+class Base {
+    public function sayHello() {
+        echo 'Hello ';
     }
+}
 
-    class MyHelloWorld extends Base {
-        use SayWorld;
+trait SayWorld {
+    public function sayHello() {
+        parent::sayHello();
+        echo 'World!';
     }
-    $o = new MyHelloWorld();
-    $o->sayHello();
+}
 
-    //Example #3 Alternate Precedence Order Example
-    trait HelloWorld {
-        public function sayHello() {
-            echo 'Hello World!';
-        }
-    }
-    
-    class TheWorldIsNotEnough {
-        use HelloWorld;
-        public function sayHello() {
-            echo '<br>';
-            echo 'Hello Universe!';
-        }
-    }
-    
-    $o = new TheWorldIsNotEnough();
-    $o->sayHello();
+class MyHelloWorld extends Base {
+    use SayWorld;
+}
+$o = new MyHelloWorld();
+$o->sayHello();
 
-    //Example #4 Multiple Traits Usage
-    trait Hello {
-        public function sayHello() {
-            echo '<br>';
-            echo 'Hello ';
-        }
+//Example #3 Alternate Precedence Order Example
+trait HelloWorld {
+    public function sayHello() {
+        echo 'Hello World!';
     }
-    
-    trait World {
-        public function sayWorld() {
-            echo 'World';
-        }
+}
+
+class TheWorldIsNotEnough {
+    use HelloWorld;
+    public function sayHello() {
+        echo '<br>';
+        echo 'Hello Universe!';
     }
-    
-    class MyyHelloWorld {
-        use Hello, World;
-        public function sayExclamationMark() {
-            echo '!';
-        }
+}
+
+$o = new TheWorldIsNotEnough();
+$o->sayHello();
+
+//Example #4 Multiple Traits Usage
+trait Hello {
+    public function sayHello() {
+        echo '<br>';
+        echo 'Hello ';
     }
-    
-    // $o = new MyyHelloWorld();
-    // $o->sayHello();
-    // $o->sayWorld();
-    // $o->sayExclamationMark();
+}
+
+trait World {
+    public function sayWorld() {
+        echo 'World';
+    }
+}
+
+class MyyHelloWorld {
+    use Hello, World;
+    public function sayExclamationMark() {
+        echo '!';
+    }
+}
+
+// $o = new MyyHelloWorld();
+// $o->sayHello();
+// $o->sayWorld();
+// $o->sayExclamationMark();
 
 
-    MyyHelloWorld::sayHello();
-    MyyHelloWorld::sayWorld();
-    MyyHelloWorld::sayExclamationMark();
-?>
+MyyHelloWorld::sayHello();
+MyyHelloWorld::sayWorld();
+MyyHelloWorld::sayExclamationMark();

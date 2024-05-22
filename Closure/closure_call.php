@@ -1,4 +1,5 @@
 <?php
+
 class A {
     private $x = 1;
 }

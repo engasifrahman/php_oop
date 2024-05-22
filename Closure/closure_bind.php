@@ -1,7 +1,9 @@
 <?php
 
-
 /**
+ * 
+ * ?Closure::bind
+ * 
  * ?NewScope (param details ↓)
  * ?Default Scope:
  * *The default scope is the scope in which the closure was originally defined.

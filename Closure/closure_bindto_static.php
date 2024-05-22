@@ -1,4 +1,5 @@
 <?php
+
 class MyClass {
     private static $privateStaticProperty = "Private static property";
     protected static $protectedStaticProperty = "Protected static property";
