@@ -3,10 +3,14 @@
 /**
  * ?Iterator
  * 
+ * Interface for external iterators or objects that can be iterated themselves internally.
+ * 
  * Iterator interface extends abstract Traversable interface. 
  * PHP provides many built-in iterators (called SPL iterators) for many routine functionalities. 
  * Examples are ArrayIterator, DirectoryIterator etc. 
  * A user class that implements Iterator interface should implement abstract methods as defined below.
+ * 
+ * Usecase: use when you need to define a custom iteration logic, especially when iteration involves complex traversal.
  * 
  * *Interface synopsis
   interface Iterator extends Traversable {

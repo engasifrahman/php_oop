@@ -8,11 +8,16 @@
  * Interface synopsis
    interface ArrayAccess {
         // Methods
-        public offsetUnset(mixed $offset): void
-        public offsetExists(mixed $offset): bool
-        public offsetGet(mixed $offset): mixed
-        public offsetSet(mixed $offset, mixed $value): void
+        public offsetUnset(mixed $offset): void // Unsets the value at the specified offset
+        public offsetExists(mixed $offset): bool // Checks if an offset exists
+        public offsetGet(mixed $offset): mixed // Retrieves the value at the specified offset.
+        public offsetSet(mixed $offset, mixed $value): void // Sets the value at the specified offset
    }
+   *
+   * ?Array vs ArrayAccess
+   * Use Arrays: When you need a simple, straightforward way to store and manipulate multiple values.
+   * Use ArrayAccess: When you want to create objects that behave like arrays but with added 
+   * control(Encapsulation) and customization over the access and modification of the elements.
  */
 class Obj implements ArrayAccess {
     private $container = array();
